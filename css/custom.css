@@ -24,3 +24,16 @@
 [data-theme="dark"] #page-header::before {
     background: transparent !important;
 }
+
+@font-face {
+    /* Ϊ���������ȡ����(����) */
+    font-family: 'csl';
+    /* �����ļ���ַ(��Ի��߾���·��������) */
+    src: url(/font/������.ttf);
+    /* ����Ӵ���ʽ(�Ӵֶ���) */
+    font-weight: 600;
+    /* ����������ʽ(б��/��б��) */
+    font-style: normal;
+    /* ������ʾ��ʽ */
+    font-display: block;
+}
