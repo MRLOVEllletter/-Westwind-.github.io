@@ -1500,7 +1500,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: csl;
+  font-family: 方正褚遂良楷书 简;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
