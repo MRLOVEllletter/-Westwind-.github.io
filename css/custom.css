@@ -183,3 +183,22 @@
         text-shadow: #5636ed 0 0 5px;
     }
 }
+/* === Waline 评论登录引导提示 === */
+#post-comment .comment-wrap::before {
+  content: "💬 直接在下方输入昵称即可评论，无需注册～ 想要拥有头像/修改评论/防冒名身份？可点登录注册 (｡･ω･｡)ﾉ";
+  display: block;
+  background: linear-gradient(135deg, rgba(73,177,245,0.08), rgba(73,177,245,0.02));
+  border-left: 3px solid #49b1f5;
+  padding: 10px 14px;
+  margin: 0 0 16px 0;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--font-color, #4c4948);
+}
+
+html[data-theme="dark"] #post-comment .comment-wrap::before {
+  background: linear-gradient(135deg, rgba(99,205,255,0.12), rgba(99,205,255,0.03));
+  border-left-color: #63cdff;
+  color: #c2c2c2;
+}
