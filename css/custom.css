@@ -272,3 +272,36 @@ html[data-theme="dark"] #post-comment .comment-wrap::before {
     height: 180px;
   }
 }
+
+/* 放大正文字体，提升阅读体验 */
+body {
+  font-size: 16px;
+}
+#post .article-content,
+.layout .post-content {
+  font-size: 16.5px;
+  line-height: 1.9;
+}
+#post .article-content p,
+.layout .post-content p {
+  margin: 1.2em 0;
+}
+#post .article-content h1,
+#post .article-content h2,
+#post .article-content h3,
+#post .article-content h4,
+.layout .post-content h1,
+.layout .post-content h2,
+.layout .post-content h3,
+.layout .post-content h4 {
+  margin-top: 1.5em;
+  margin-bottom: 0.6em;
+}
+.sidebar .author-info__name,
+.sidebar .author-info__description {
+  font-size: 15px;
+}
+#recent-posts .recent-post-item .recent-post-info .content {
+  font-size: 15px;
+  line-height: 1.8;
+}
