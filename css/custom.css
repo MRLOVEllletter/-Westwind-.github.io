@@ -275,11 +275,11 @@ html[data-theme="dark"] #post-comment .comment-wrap::before {
 
 /* 放大正文字体，提升阅读体验 */
 body {
-  font-size: 16px;
+  font-size: 17px;
 }
 #post .article-content,
 .layout .post-content {
-  font-size: 16.5px;
+  font-size: 18px;
   line-height: 1.9;
 }
 #post .article-content p,
