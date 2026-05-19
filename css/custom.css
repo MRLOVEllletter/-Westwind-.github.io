@@ -412,15 +412,18 @@ body {
 /* 副标题：vintage 英文衬线（Cormorant Garamond）与中文宋体并存，斜体增旧感 */
 .has-video-bg #site-subtitle,
 .has-video-bg #subtitle {
-  color: rgba(228, 220, 203, 0.78) !important;
+  color: rgba(236, 228, 210, 0.9) !important;
   font-family: 'Cormorant Garamond', 'EB Garamond',
                'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: italic;
-  font-size: clamp(16px, 1.4vw, 21px);
-  letter-spacing: 0.28em;
-  padding-left: 0.28em;
-  text-shadow: 0 2px 14px rgba(40, 45, 55, 0.5);
+  font-size: clamp(17px, 1.5vw, 23px);
+  letter-spacing: 0.24em;
+  padding-left: 0.24em;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 2px 12px rgba(15, 20, 25, 0.45),
+    0 0 26px rgba(20, 25, 30, 0.3);
   animation: hero-mist-in 2400ms cubic-bezier(.22,.61,.36,1) 600ms both;
 }
 
@@ -472,7 +475,7 @@ body {
   }
   #site-subtitle,
   #subtitle {
-    letter-spacing: 0.22em;
+    letter-spacing: 0.14em;
   }
   .has-video-bg #page-header::after {
     display: none;
