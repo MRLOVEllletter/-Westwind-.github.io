@@ -37,25 +37,19 @@
     /* ������ʾ��ʽ */
     font-display: block;
 }
-/* �ռ�ģʽ����Ч */
+/* 白天模式无特效 */
 [data-theme="light"] #site-name,
 [data-theme="light"] #site-title,
 [data-theme="light"] #site-subtitle,
 [data-theme="light"] #post-info {
     animation: none;
 }
-/* ҹ��ģʽ��Ч */
+/* 夜晚模式：关闭彩虹炫光，避免与电影感背景冲突 */
 [data-theme="dark"] #site-name,
-[data-theme="dark"] #site-title {
-    animation: light_15px 10s linear infinite;
-}
-
-[data-theme="dark"] #site-subtitle {
-    animation: light_10px 10s linear infinite;
-}
-
+[data-theme="dark"] #site-title,
+[data-theme="dark"] #site-subtitle,
 [data-theme="dark"] #post-info {
-    animation: light_5px 10s linear infinite;
+    animation: none !important;
 }
 /* �ؼ�֡���� */
 @keyframes light_15px {
@@ -371,5 +365,116 @@ body {
   }
   .has-video-bg #site-info {
     transform: none;
+  }
+}
+
+/* === Hero: 雾中老书 / 雨的朦胧感（vintage British） === */
+/* 仅作用于主页带视频背景的 hero，不影响子页面 */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+.has-video-bg #site-info {
+  text-align: center;
+}
+
+/* 主标题：低饱和旧书纸米白 + 多层柔雾光晕（暖灰叠冷青灰），轻微模糊模拟潮气 */
+.has-video-bg #site-title,
+.has-video-bg #site-name {
+  color: #e4dccb !important;             /* 旧书纸米白 */
+  font-size: clamp(56px, 7.5vw, 116px);
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  line-height: 1.15;
+  text-shadow:
+    0 0 1px rgba(228, 220, 203, 0.6),
+    0 2px 18px rgba(120, 105, 85, 0.45),
+    0 4px 42px rgba(90, 100, 110, 0.35),
+    0 0 80px rgba(60, 70, 80, 0.25);
+  animation: hero-mist-in 2200ms cubic-bezier(.22,.61,.36,1) both;
+}
+
+/* 标题下方：褪色的细墨痕，替代之前的金线 */
+.has-video-bg #site-title::after,
+.has-video-bg #site-name::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 1px;
+  margin: 20px auto 14px;
+  background: linear-gradient(90deg,
+    rgba(228, 220, 203, 0),
+    rgba(228, 220, 203, 0.35),
+    rgba(228, 220, 203, 0));
+  filter: blur(0.5px);
+  transform-origin: center;
+  animation: hero-line-in 2400ms cubic-bezier(.22,.61,.36,1) 400ms both;
+}
+
+/* 副标题：vintage 英文衬线（Cormorant Garamond）与中文宋体并存，斜体增旧感 */
+.has-video-bg #site-subtitle,
+.has-video-bg #subtitle {
+  color: rgba(228, 220, 203, 0.78) !important;
+  font-family: 'Cormorant Garamond', 'EB Garamond',
+               'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(16px, 1.4vw, 21px);
+  letter-spacing: 0.28em;
+  padding-left: 0.28em;
+  text-shadow: 0 2px 14px rgba(40, 45, 55, 0.5);
+  animation: hero-mist-in 2400ms cubic-bezier(.22,.61,.36,1) 600ms both;
+}
+
+.has-video-bg #site-subtitle .typed-cursor,
+.has-video-bg #subtitle .typed-cursor {
+  color: rgba(228, 220, 203, 0.6);
+  font-style: normal;
+}
+
+/* 雾气层：在 hero 顶部叠一层缓慢飘移的低饱和暖/冷光斑，营造潮湿空气感 */
+.has-video-bg #page-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 20% 40%, rgba(220, 215, 200, 0.10), transparent 55%),
+    radial-gradient(ellipse at 75% 60%, rgba(200, 210, 220, 0.08), transparent 60%),
+    radial-gradient(ellipse at 50% 85%, rgba(230, 220, 200, 0.06), transparent 70%);
+  mix-blend-mode: screen;
+  animation: hero-fog-drift 42s ease-in-out infinite alternate;
+}
+
+@keyframes hero-mist-in {
+  from { opacity: 0; transform: translateY(10px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+
+@keyframes hero-line-in {
+  from { opacity: 0; transform: scaleX(0.2); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+
+@keyframes hero-fog-drift {
+  0%   { transform: translate3d(-3%, 0, 0) scale(1.05); opacity: 0.85; }
+  50%  { transform: translate3d(2%, -1%, 0) scale(1.08); opacity: 1; }
+  100% { transform: translate3d(4%, 1%, 0) scale(1.06); opacity: 0.9; }
+}
+
+/* 移动端：移除雾气层和潮气模糊，避免性能负担和小屏糊感 */
+@media (max-width: 926px) {
+  #site-title,
+  #site-name {
+    letter-spacing: 0.05em;
+    text-shadow:
+      0 0 1px rgba(228, 220, 203, 0.5),
+      0 2px 14px rgba(80, 70, 55, 0.5);
+  }
+  #site-subtitle,
+  #subtitle {
+    letter-spacing: 0.22em;
+  }
+  .has-video-bg #page-header::after {
+    display: none;
   }
 }
