@@ -361,7 +361,7 @@ body {
 }
 
 .has-video-bg #site-info {
-  transform: translateX(28%);
+  transform: translateX(15%);
 }
 
 /* Mobile: hide video background */
