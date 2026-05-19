@@ -273,6 +273,49 @@ html[data-theme="dark"] #post-comment .comment-wrap::before {
   }
 }
 
+/* === Bluepoch hero: page-header bottom gradient === */
+/* Add a transparent-to-dark gradient over the lower part of the banner image,
+   so the site title/subtitle/breadcrumb sit on a darker base and look cleaner. */
+#page-header:not(.not-top-img)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 35%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+#page-header #site-info,
+#page-header #page-site-info,
+#page-header #page-site-name,
+#page-header #post-info,
+#page-header .post-meta,
+#page-header #scroll-down {
+  position: relative;
+  z-index: 2;
+}
+
+/* === Bluepoch hero: Noto Serif SC (Source Han Serif) for headings === */
+/* The webfont itself is loaded via <link> in inject.head (see _config.butterfly.yml). */
+#post .article-content h1,
+#post .article-content h2,
+#post .article-content h3,
+#post .article-content h4,
+.layout .post-content h1,
+.layout .post-content h2,
+.layout .post-content h3,
+.layout .post-content h4,
+#recent-posts .recent-post-item .recent-post-info .article-title,
+.categoryBar .item .info .title,
+.tag-cloud-title {
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Source Han Serif CN',
+               'Songti SC', 'STSong', serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 /* 放大正文字体，提升阅读体验 */
 body {
   font-size: 17px;
