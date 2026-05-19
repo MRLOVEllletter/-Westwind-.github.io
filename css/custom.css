@@ -479,16 +479,7 @@ body {
   }
 }
 
-/* === 方案 1：hero 到文章列表的过渡 === */
-/* 视频底部渐变拉得更深，向下接到米白纸色，消除断层 */
-.has-video-bg #home-video-bg .home-video-gradient {
-  height: 55%;
-  background: linear-gradient(to bottom,
-    transparent 0%,
-    rgba(20, 18, 15, 0.55) 60%,
-    rgba(40, 35, 28, 0.92) 100%);
-}
-
+/* === hero 到文章列表的过渡 === */
 /* 首页内容区铺一层低饱和米白纸色，承接 hero 气质 */
 body:not(.has-video-bg) { /* 子页面不动 */ }
 
@@ -506,30 +497,54 @@ html[data-theme="dark"] .has-video-bg #content-inner {
     #1f1c17 100%);
 }
 
-/* === 方案 2：文章卡片复古英伦化 === */
+/* === 文章卡片：做旧纸纹 + 双线古典框 + 暗金分隔（重返1999 质感） === */
 #recent-posts .recent-post-item {
-  border-radius: 8px;
-  background: #fdfaf3;
+  position: relative;
+  border-radius: 6px;
+  /* 多层径向渐变：模拟旧纸的不均匀泛黄、霉斑、角落变色 */
+  background:
+    radial-gradient(ellipse at 18% 15%, rgba(168, 134, 90, 0.08), transparent 40%),
+    radial-gradient(ellipse at 82% 88%, rgba(168, 134, 90, 0.07), transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(220, 195, 150, 0.04), transparent 70%),
+    radial-gradient(circle at 8% 92%, rgba(140, 100, 60, 0.06), transparent 12%),
+    radial-gradient(circle at 92% 12%, rgba(140, 100, 60, 0.05), transparent 10%),
+    linear-gradient(180deg, #f7f0df 0%, #f3ead6 100%);
+  background-blend-mode: multiply, multiply, normal, multiply, multiply, normal;
+  /* 双线古典框：外层暗金细线 + 内层 1px 留白 */
+  border: 1px solid rgba(168, 134, 90, 0.45);
   box-shadow:
-    0 1px 2px rgba(80, 65, 50, 0.06),
-    0 4px 16px rgba(80, 65, 50, 0.08);
-  border: 1px solid rgba(120, 100, 75, 0.08);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+    inset 0 0 0 1px rgba(247, 240, 223, 0.9),
+    inset 0 0 0 2px rgba(168, 134, 90, 0.18),
+    0 1px 2px rgba(80, 65, 50, 0.08),
+    0 6px 20px rgba(80, 65, 50, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 #recent-posts .recent-post-item:hover {
   transform: translateY(-3px);
+  border-color: rgba(168, 134, 90, 0.7);
   box-shadow:
-    0 2px 4px rgba(80, 65, 50, 0.08),
-    0 10px 28px rgba(80, 65, 50, 0.14);
+    inset 0 0 0 1px rgba(247, 240, 223, 0.9),
+    inset 0 0 0 2px rgba(168, 134, 90, 0.28),
+    0 2px 4px rgba(80, 65, 50, 0.1),
+    0 14px 32px rgba(80, 65, 50, 0.18);
 }
 
 #recent-posts .recent-post-item .recent-post-info .article-title {
   color: #2a2520;
   letter-spacing: 0.01em;
-  padding-bottom: 0.35em;
-  border-bottom: 1px solid rgba(120, 100, 75, 0.15);
+  padding-bottom: 0.45em;
   margin-bottom: 0.6em;
+  /* 暗金渐隐分隔线：左右淡出，中间最浓 */
+  border-bottom: none;
+  background-image: linear-gradient(90deg,
+    rgba(168, 134, 90, 0),
+    rgba(168, 134, 90, 0.55) 30%,
+    rgba(168, 134, 90, 0.55) 70%,
+    rgba(168, 134, 90, 0));
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 100%;
   transition: color 0.3s ease;
 }
 
@@ -547,24 +562,40 @@ html[data-theme="dark"] .has-video-bg #content-inner {
   color: rgba(60, 50, 40, 0.82);
 }
 
-/* 夜间模式：卡片改成低饱和暖深灰 */
+/* 夜间模式：旧羊皮纸 → 烛光下的暗色古籍 */
 html[data-theme="dark"] #recent-posts .recent-post-item {
-  background: #262320;
-  border-color: rgba(180, 160, 130, 0.10);
+  background:
+    radial-gradient(ellipse at 18% 15%, rgba(180, 140, 85, 0.10), transparent 40%),
+    radial-gradient(ellipse at 82% 88%, rgba(180, 140, 85, 0.08), transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(120, 95, 60, 0.05), transparent 70%),
+    radial-gradient(circle at 8% 92%, rgba(80, 55, 30, 0.18), transparent 12%),
+    radial-gradient(circle at 92% 12%, rgba(80, 55, 30, 0.15), transparent 10%),
+    linear-gradient(180deg, #2a2620 0%, #221e18 100%);
+  background-blend-mode: screen, screen, normal, multiply, multiply, normal;
+  border-color: rgba(180, 140, 85, 0.32);
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.3),
-    0 4px 16px rgba(0, 0, 0, 0.35);
+    inset 0 0 0 1px rgba(50, 42, 32, 0.9),
+    inset 0 0 0 2px rgba(180, 140, 85, 0.16),
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 6px 22px rgba(0, 0, 0, 0.45);
 }
 
 html[data-theme="dark"] #recent-posts .recent-post-item:hover {
+  border-color: rgba(212, 184, 138, 0.5);
   box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.35),
-    0 10px 28px rgba(0, 0, 0, 0.5);
+    inset 0 0 0 1px rgba(50, 42, 32, 0.9),
+    inset 0 0 0 2px rgba(212, 184, 138, 0.24),
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 14px 36px rgba(0, 0, 0, 0.6);
 }
 
 html[data-theme="dark"] #recent-posts .recent-post-item .recent-post-info .article-title {
   color: #e4dccb;
-  border-bottom-color: rgba(180, 160, 130, 0.18);
+  background-image: linear-gradient(90deg,
+    rgba(212, 184, 138, 0),
+    rgba(212, 184, 138, 0.5) 30%,
+    rgba(212, 184, 138, 0.5) 70%,
+    rgba(212, 184, 138, 0));
 }
 
 html[data-theme="dark"] #recent-posts .recent-post-item .recent-post-info .article-title:hover {
