@@ -360,9 +360,16 @@ body {
   z-index: 2;
 }
 
+.has-video-bg #site-info {
+  transform: translateX(28%);
+}
+
 /* Mobile: hide video background */
 @media (max-width: 926px) {
   .has-video-bg #home-video-bg {
     display: none !important;
+  }
+  .has-video-bg #site-info {
+    transform: none;
   }
 }
