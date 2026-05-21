@@ -26,24 +26,21 @@
 }
 
 @font-face {
-    /* Ϊ���������ȡ����(����) */
-    font-family: '方正褚遂良楷书 简';
-    /* �����ļ���ַ(��Ի��߾���·��������) */
-    src: url(/font/csl.TTF);
-    /* ����Ӵ���ʽ(�Ӵֶ���) */
+    font-family: 'csl';
+    src: url(/font/csl.woff2) format('woff2'),
+         url(/font/csl.TTF) format('truetype');
     font-weight: 600;
-    /* ����������ʽ(б��/��б��) */
     font-style: normal;
-    /* ������ʾ��ʽ */
     font-display: block;
 }
 
 @font-face {
-	font-family: '默陌山魂手迹';
-	src: url(/font/momo.ttf);
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
+    font-family: 'momo';
+    src: url(/font/momo.woff2) format('woff2'),
+         url(/font/momo.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 /* 白天模式无特效 */
 [data-theme="light"] #site-name,
