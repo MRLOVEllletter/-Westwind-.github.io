@@ -35,15 +35,6 @@
 }
 
 @font-face {
-    font-family: 'huawen';
-    src: url(/font/huawen.woff2) format('woff2'),
-         url(/font/huawen.ttf) format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
     font-family: 'momo';
     src: url(/font/momo.woff2) format('woff2'),
          url(/font/momo.ttf) format('truetype');
@@ -307,7 +298,7 @@ body {
 #post .article-content,
 .layout .post-content {
   font-size: 18px;
-  line-height: 1.85;
+  line-height: 1.9;
 }
 #post .article-content p,
 .layout .post-content p {
@@ -329,36 +320,9 @@ body {
   font-size: 15px;
 }
 #recent-posts .recent-post-item .recent-post-info .content {
-
-/* === 1999 风格：文章阅读区暖纸复古调 === */
-#post .article-content,
-.layout .post-content {
-  color: #2c3539;
-  letter-spacing: 0.02em;
+  font-size: 15px;
+  line-height: 1.8;
 }
-
-[data-theme="dark"] #post .article-content,
-[data-theme="dark"] .layout .post-content {
-  color: #d1c7bd;
-}
-
-/* 引用块：左侧装饰线 + 暖调 */
-#post .article-content blockquote,
-.layout .post-content blockquote {
-  border-left: 3px solid #b8a99a;
-  background: rgba(184, 169, 154, 0.08);
-  color: inherit;
-  padding: 0.8em 1.2em;
-  margin: 1.5em 0;
-  font-style: italic;
-}
-
-[data-theme="dark"] #post .article-content blockquote,
-[data-theme="dark"] .layout .post-content blockquote {
-  border-left-color: #8a7a6a;
-  background: rgba(138, 122, 106, 0.1);
-}
-
 
 /* === Homepage PC video background (Bluepoch-style) === */
 .has-video-bg #page-header {
@@ -652,10 +616,4 @@ html[data-theme="dark"] #recent-posts .recent-post-item .recent-post-info .artic
 
 html[data-theme="dark"] #recent-posts .recent-post-item .recent-post-info .content {
   color: rgba(220, 210, 195, 0.75);
-}
-
-/* 菜单栏字体：保留褚遂良楷书 */
-#nav .menus_items a,
-#nav .menus_items .site-page {
-  font-family: 'csl', serif !important;
 }
