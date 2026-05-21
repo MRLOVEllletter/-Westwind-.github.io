@@ -26,12 +26,12 @@
 }
 
 @font-face {
-    font-family: 'csl';
-    src: url(/font/csl.woff2) format('woff2'),
-         url(/font/csl.TTF) format('truetype');
-    font-weight: 600;
+    font-family: 'huawen';
+    src: url(/font/huawen.woff2) format('woff2'),
+         url(/font/huawen.ttf) format('truetype');
+    font-weight: 400;
     font-style: normal;
-    font-display: block;
+    font-display: swap;
 }
 
 @font-face {
@@ -616,4 +616,33 @@ html[data-theme="dark"] #recent-posts .recent-post-item .recent-post-info .artic
 
 html[data-theme="dark"] #recent-posts .recent-post-item .recent-post-info .content {
   color: rgba(220, 210, 195, 0.75);
+}
+
+/* === 1999 复古阅读区风格 === */
+#post .article-content,
+.layout .post-content {
+  color: #2c3539;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="dark"] #post .article-content,
+[data-theme="dark"] .layout .post-content {
+  color: #d1c7bd;
+}
+
+/* 引用块暖调装饰 */
+#post .article-content blockquote,
+.layout .post-content blockquote {
+  border-left: 3px solid #b8a99a;
+  background: rgba(184, 169, 154, 0.08);
+  color: inherit;
+  padding: 0.8em 1.2em;
+  margin: 1.5em 0;
+  font-style: italic;
+}
+
+[data-theme="dark"] #post .article-content blockquote,
+[data-theme="dark"] .layout .post-content blockquote {
+  border-left-color: #8a7a6a;
+  background: rgba(138, 122, 106, 0.1);
 }
