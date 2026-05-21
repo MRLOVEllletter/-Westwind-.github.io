@@ -26,6 +26,15 @@
 }
 
 @font-face {
+    font-family: 'csl';
+    src: url(/font/csl.woff2) format('woff2'),
+         url(/font/csl.TTF) format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
     font-family: 'huawen';
     src: url(/font/huawen.woff2) format('woff2'),
          url(/font/huawen.ttf) format('truetype');
@@ -645,4 +654,11 @@ html[data-theme="dark"] #recent-posts .recent-post-item .recent-post-info .conte
 [data-theme="dark"] .layout .post-content blockquote {
   border-left-color: #8a7a6a;
   background: rgba(138, 122, 106, 0.1);
+}
+
+
+/* Menu bar: keep csl font */
+#nav .menus_items a,
+#nav .menus_items .site-page {
+  font-family: 'csl', serif !important;
 }
