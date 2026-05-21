@@ -29,7 +29,7 @@
     /* Ϊ���������ȡ����(����) */
     font-family: '方正褚遂良楷书 简';
     /* �����ļ���ַ(��Ի��߾���·��������) */
-    src: url(/font/������.TTF);
+    src: url(/font/csl.TTF);
     /* ����Ӵ���ʽ(�Ӵֶ���) */
     font-weight: 600;
     /* ����������ʽ(б��/��б��) */
@@ -40,7 +40,7 @@
 
 @font-face {
 	font-family: '默陌山魂手迹';
-	src: url(/font/默陌山魂手迹.ttf);
+	src: url(/font/momo.ttf);
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
